@@ -68,30 +68,93 @@
 <body>
 
   <!-- SINGLE NAVBAR -->
-  <nav class="navbar">
+  <nav class="bg-white shadow-md px-6 py-2 fixed top-0 left-0 w-full z-50">
+    
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-    <!-- LOGO -->
-    <div class="logo w-14 h-14">
-     <img src="{{ asset('images/logo.png') }}" alt="Logo">
+        <!-- LOGO -->
+        <div class="w-14 h-14">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-full h-full object-contain">
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button id="menu-btn" class="md:hidden text-3xl text-gray-800">
+            ☰
+        </button>
+
+        <!-- MENU -->
+        <ul id="menu"
+            class="hidden md:flex items-center gap-8 text-gray-700 font-semibold">
+
+            <li><a href="#" class="hover:text-blue-600">Home</a></li>
+
+            <li><a href="#" class="hover:text-blue-600">About</a></li>
+
+            <li>
+                <a href="{{ route('service.index') }}"
+                   class="hover:text-blue-600">
+                   Services
+                </a>
+            </li>
+
+            <li><a href="#" class="hover:text-blue-600">Fleet</a></li>
+
+            <li><a href="#" class="hover:text-blue-600">Areas</a></li>
+
+            <li><a href="#" class="hover:text-blue-600">Contact Us</a></li>
+        </ul>
+
+        <!-- BUTTON -->
+        <button
+            class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+            GET QUOTE
+        </button>
+
     </div>
 
-   
-    <!-- MENU -->
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <!-- <li><a href="#">Services</a></li> -->
-       <li><a href="{{ route('service.index') }}">Services</a></li>
-       
-      <li><a href="#">Fleet</a></li>
-      <li><a href="#">Areas</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu"
+         class="hidden md:hidden mt-4 bg-white border-t pt-4">
 
-    <!-- BUTTON -->
-    <button class="quote-btn">GET QUOTE</button>
+        <ul class="flex flex-col gap-4 text-gray-700 font-semibold">
 
-  </nav>
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#">About</a></li>
+
+            <li>
+                <a href="{{ route('service.index') }}">
+                    Services
+                </a>
+            </li>
+
+            <li><a href="#">Fleet</a></li>
+
+            <li><a href="#">Areas</a></li>
+
+            <li><a href="#">Contact Us</a></li>
+
+            <li>
+                <button
+                    class="w-full bg-blue-600 text-white px-5 py-2 rounded-lg">
+                    GET QUOTE
+                </button>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>
+
+<!-- SCRIPT -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
 
   <section class="w-full bg-gray-100 py-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
